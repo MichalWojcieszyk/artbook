@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'author_comments/edit'
+
+  get 'author_comments/create'
+
+  get 'author_comments/destroy'
+
+  get 'art_comments/edit'
+
+  get 'art_comments/create'
+
+  get 'art_comments/destroy'
+
   get 'authors/index'
 
   get 'authors/show'

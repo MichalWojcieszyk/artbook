@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  rating: 1
+  birth_date: 2015-09-30
+  die_date: 2015-09-30
+  hometown: MyString
+  photo: MyString
+  biography: MyText
+
+two:
+  name: MyString
+  rating: 1
+  birth_date: 2015-09-30
+  die_date: 2015-09-30
+  hometown: MyString
+  photo: MyString
+  biography: MyText
