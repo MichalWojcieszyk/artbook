@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'arts/index'
+
+  get 'arts/show'
+
+  get 'arts/new'
+
+  get 'arts/edit'
+
+  get 'arts/create'
+
+  get 'arts/update'
+
+  get 'arts/destroy'
+
   get 'object/index'
 
   get 'object/show'
