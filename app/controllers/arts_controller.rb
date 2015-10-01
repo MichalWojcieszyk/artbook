@@ -1,4 +1,9 @@
 class ArtsController < ApplicationController
+  expose(:category)
+  expose(:art)
+  expose(:arts) { Art.order(:rating) }
+  expose(:art_comments, ancestor: :art)
+
   def index
   end
 
@@ -12,11 +17,18 @@ class ArtsController < ApplicationController
   end
 
   def create
+    if art.save
+      category.arts << art
+      redirect_to category_art_url(category, art), notice: "Your work of art was successfully created"
   end
 
   def update
+    if art.update(art_params)
+      redirect_to category_art_url(category, art), notice: "Work of art was successfully updated"
   end
 
   def destroy
+    if art.destroy
+      redirect_to category_url(art.category), notice: "Work of art was successfully deleted"
   end
 end

@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   expose(:category)
-  expose(:categories)
+  expose(:categories) { Category.order(:name) }
   expose(:art)
 
   def index
@@ -24,7 +24,7 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    if category.update
+    if category.update(category_params)
       redirect_to category, notice: 'Category was successfully updated'
     else
       render :edit
@@ -35,4 +35,8 @@ class CategoriesController < ApplicationController
     category.destroy
     redirect_to caterories_url, notice: 'Category was successfully deleted'
   end
+
+  private
+    def category_params
+      params.require(:category).permit(:name)
 end

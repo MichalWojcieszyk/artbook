@@ -1,71 +1,11 @@
 Rails.application.routes.draw do
-  get 'author_comments/edit'
+  
+  resources :categories do
+    resources :arts do
+      resources :art_comments
 
-  get 'author_comments/create'
-
-  get 'author_comments/destroy'
-
-  get 'art_comments/edit'
-
-  get 'art_comments/create'
-
-  get 'art_comments/destroy'
-
-  get 'authors/index'
-
-  get 'authors/show'
-
-  get 'authors/new'
-
-  get 'authors/edit'
-
-  get 'authors/create'
-
-  get 'authors/update'
-
-  get 'authors/destroy'
-
-  get 'arts/index'
-
-  get 'arts/show'
-
-  get 'arts/new'
-
-  get 'arts/edit'
-
-  get 'arts/create'
-
-  get 'arts/update'
-
-  get 'arts/destroy'
-
-  get 'object/index'
-
-  get 'object/show'
-
-  get 'object/new'
-
-  get 'object/edit'
-
-  get 'object/create'
-
-  get 'object/update'
-
-  get 'object/destroy'
-
-  get 'categories/index'
-
-  get 'categories/show'
-
-  get 'categories/new'
-
-  get 'categories/edit'
-
-  get 'categories/create'
-
-  get 'categories/update'
-
-  get 'categories/destroy'
+  resources :authors do
+    resources :author_comments
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
