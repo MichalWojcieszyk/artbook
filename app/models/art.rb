@@ -3,4 +3,6 @@ class Art < ActiveRecord::Base
 	has_many :art_comments
 	belongs_to :author
 	belongs_to :user
+
+	validates_presence_of :title, :style, :author, :rating
 end

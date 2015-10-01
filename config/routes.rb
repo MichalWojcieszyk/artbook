@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   resources :categories do
     resources :arts do
       resources :art_comments
+    end
+  end
 
   resources :authors do
     resources :author_comments
+  end
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
