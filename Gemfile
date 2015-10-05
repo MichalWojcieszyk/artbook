@@ -16,6 +16,7 @@ gem 'haml-rails'
 gem 'decent_exposure'
 gem 'therubyracer', platforms: :ruby
 gem 'bootstrap-sass', '~> 3.3.5'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug'

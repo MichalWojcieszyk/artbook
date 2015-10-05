@@ -7,14 +7,17 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %nav.navbar.navbar-inverse
+    %nav.navbar.navbar-inverse{role: "navigation"}
       .container-fluid
-      .navbar-header
-      %ul.nav.nav-pills
-        %li
-          =link_to "Home", root_path
-        %li
-          =link_to "Categories", root_path
+        .navbar-header ArtBook
+        %ul.nav.nav-pills
+          %li.active
+            =link_to "Home", root_path
+          %li.active
+            =link_to "Categories", root_path
+          %li.active
+            -if user_signed_in?
+              =link_to "Show my profile", user_path(current_user)
     
     .container
       .jumbotron
