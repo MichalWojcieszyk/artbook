@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005114713) do
+ActiveRecord::Schema.define(version: 20151005120617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,12 @@ ActiveRecord::Schema.define(version: 20151005114713) do
   add_index "arts", ["category_id"], name: "index_arts_on_category_id", using: :btree
   add_index "arts", ["user_id"], name: "index_arts_on_user_id", using: :btree
 
+  create_table "author_categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "author_comments", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
@@ -67,11 +73,13 @@ ActiveRecord::Schema.define(version: 20151005114713) do
     t.string   "hometown"
     t.string   "photo"
     t.text     "biography"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "user_id"
+    t.integer  "author_category_id"
   end
 
+  add_index "authors", ["author_category_id"], name: "index_authors_on_author_category_id", using: :btree
   add_index "authors", ["user_id"], name: "index_authors_on_user_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
@@ -109,5 +117,6 @@ ActiveRecord::Schema.define(version: 20151005114713) do
   add_foreign_key "arts", "users"
   add_foreign_key "author_comments", "authors"
   add_foreign_key "author_comments", "users"
+  add_foreign_key "authors", "author_categories"
   add_foreign_key "authors", "users"
 end
