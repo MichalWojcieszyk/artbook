@@ -1,2 +1,29 @@
-%h1 Categories#show
-%p Find me in app/views/categories/show.html.erb
+%h1 
+  = category.name
+-if user_signed_in?
+  = render 'products/form'
+
+-if category.arts.empty?
+  "No piece of arts in this category. Add new one!"
+-else
+  %table.table.table-bordered
+    %tr
+      %th Title
+      %th Description
+      %th Production date
+      %th Author
+      %th Style
+
+    -category.products.each do |product|
+      %tr
+        %td= link_to art.title.capitalize
+        %td= link_to art.description
+        %td= link_to art.production_date
+        %td= link_to art.author
+        %td= link_to art.style
+
+-if is_admin?
+  = link_to 'Edit', edit_category_path(category), class: 'btn btn-info'
+\|
+= link_to 'Back', categories_path, class: 'btn btn-warning'
+
