@@ -1,0 +1,2 @@
+module AuthorCategoriesHelper
+end
