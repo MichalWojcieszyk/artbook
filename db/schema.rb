@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005111838) do
+ActiveRecord::Schema.define(version: 20151005114713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,8 +22,10 @@ ActiveRecord::Schema.define(version: 20151005111838) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.integer  "art_id"
   end
 
+  add_index "art_comments", ["art_id"], name: "index_art_comments_on_art_id", using: :btree
   add_index "art_comments", ["user_id"], name: "index_art_comments_on_user_id", using: :btree
 
   create_table "arts", force: :cascade do |t|
@@ -39,8 +41,10 @@ ActiveRecord::Schema.define(version: 20151005111838) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "user_id"
+    t.integer  "category_id"
   end
 
+  add_index "arts", ["category_id"], name: "index_arts_on_category_id", using: :btree
   add_index "arts", ["user_id"], name: "index_arts_on_user_id", using: :btree
 
   create_table "author_comments", force: :cascade do |t|
@@ -49,8 +53,10 @@ ActiveRecord::Schema.define(version: 20151005111838) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.integer  "author_id"
   end
 
+  add_index "author_comments", ["author_id"], name: "index_author_comments_on_author_id", using: :btree
   add_index "author_comments", ["user_id"], name: "index_author_comments_on_user_id", using: :btree
 
   create_table "authors", force: :cascade do |t|
@@ -97,8 +103,11 @@ ActiveRecord::Schema.define(version: 20151005111838) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "art_comments", "arts"
   add_foreign_key "art_comments", "users"
+  add_foreign_key "arts", "categories"
   add_foreign_key "arts", "users"
+  add_foreign_key "author_comments", "authors"
   add_foreign_key "author_comments", "users"
   add_foreign_key "authors", "users"
 end

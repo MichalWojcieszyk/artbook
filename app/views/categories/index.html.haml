@@ -8,11 +8,13 @@
     %th
     %th
     %th
-
-  - categories.each do |category|
-    %tr
-      %td= link_to category.name.capitalize, category, class: 'btn btn-default'
-      %td= link_to "Show", category, class: 'btn btn-warning'
-      -if is_admin?
-        %td= link_to 'Edit', edit_category_path(category), class: 'btn btn-info'
-        %td= link_to 'Delete', category, method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger btn-sm'
+  -if categories.count > 0
+    - categories.each do |category|
+      %tr
+        %td= link_to category.name, category, class: 'btn btn-default'
+        %td= link_to "Show", category, class: 'btn btn-warning'
+        -if is_admin?
+          %td= link_to 'Edit', edit_category_path(category), class: 'btn btn-info'
+          %td= link_to 'Delete', category, method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger btn-sm'
+  -else 
+    Add new category
