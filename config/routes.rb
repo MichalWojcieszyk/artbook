@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
   
+  get 'author_categories/index'
+
+  get 'author_categories/show'
+
+  get 'author_categories/new'
+
+  get 'author_categories/create'
+
+  get 'author_categories/edit'
+
+  get 'author_categories/update'
+
+  get 'author_categories/destroy'
+
   resources :categories do
     resources :arts do
       resources :art_comments
