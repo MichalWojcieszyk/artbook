@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'users/show'
+
+  get 'users/edit'
+
   get 'author_categories/index'
 
   get 'author_categories/show'
