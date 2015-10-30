@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   expose(:category)
   expose(:categories) { Category.order(:name) }
-  expose(:art)
+  expose(:art) { Art.new }
 
   def index
   end

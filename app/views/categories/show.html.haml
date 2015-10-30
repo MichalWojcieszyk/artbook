@@ -1,8 +1,9 @@
 %h1 
   = category.name
 -if user_signed_in?
-  = render 'products/form'
+  = render 'arts/form'
 
+%br
 -if category.arts.empty?
   "No piece of arts in this category. Add new one!"
 -else

@@ -1,0 +1,19 @@
+= simple_form_for [category, art] do |f|
+  - if art.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(art.errors.count, "error")} prohibited this piece of art from being saved:"
+      %ul
+        - art.errors.full_message.each do |msg|
+          %li= msg
+
+  .form-inputs
+    = f.input :title, required: true, autofocus: true
+    = f.input :description
+    = f.input :production_date
+    = f.input :author
+    = f.input :style
+    = f.input :image
+    = f.input :owner
+    = f.input :location
+  .form-actions
+    = f.button :submit, "Add this piece of art", class: 'btn btn-success'
