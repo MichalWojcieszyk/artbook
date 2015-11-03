@@ -13,9 +13,15 @@
           ArtBook
         %ul.nav.navbar-nav
           %li.active
-            =link_to "Home", root_path
+            = link_to "Home", root_path
           %li.active
-            =link_to "Categories", root_path
+            = link_to "Art categories", categories_path
+          %li.active
+            = link_to "Arts", arts_path
+          %li.active
+            = link_to "Authors categories", author_categories_path
+          %li.active
+            = link_to "Authors", authors_path
           %li.active
             -if user_signed_in?
               =link_to "Show my profile", user_path(current_user)

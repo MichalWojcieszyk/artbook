@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   
 
-  get 'author_categories/index'
+  #get 'author_categories/index'
 
   get 'author_categories/show'
 
@@ -21,6 +21,9 @@ Rails.application.routes.draw do
       resources :art_comments
     end
   end
+
+  resources :arts
+  resources :author_categories
 
   resources :authors do
     resources :author_comments
