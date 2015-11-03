@@ -9,7 +9,7 @@
   .form-inputs
     = f.input :title, required: true, autofocus: true
     = f.input :description
-    = f.input :production_date
+    = f.input :production_date, as: :date, start_year: Date.today.year - 500, end_year: Date.today.year, discard_day: true, order: [:month, :year]
     = f.input :author
     = f.input :style
     = f.input :image

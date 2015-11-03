@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   
-  get 'users/show'
-
-  get 'users/edit'
+  
 
   get 'author_categories/index'
 
@@ -29,10 +27,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
+  resources :users
   root 'categories#index'
 
   # Example of regular route:
