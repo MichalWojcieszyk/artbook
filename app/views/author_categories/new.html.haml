@@ -1,2 +1,5 @@
-%h1 AuthorCategories#new
-%p Find me in app/views/author_categories/new.html.haml
+%h1 Add new category
+= render 'form'
+
+%br
+= link_to 'Back', author_categories_path, class: 'btn btn-warning'

@@ -1,0 +1,13 @@
+= form_for author_category do |f|
+  - if author_category.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(category.errors.count, "error")} prohibited this category from being saved:"
+      %ul
+        - author_category.errors.full_message.each do |msg|
+          %li= msg
+
+ .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+
+  = f.submit 'Save', class: 'btn btn-success'

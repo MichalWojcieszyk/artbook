@@ -1,6 +1,6 @@
 class AuthorCategoriesController < ApplicationController
   expose(:author_category)
-  expose(:author_categories)
+  expose(:author_categories) { AuthorCategory.order(:name) }
 
   def index
   end
@@ -12,7 +12,7 @@ class AuthorCategoriesController < ApplicationController
   end
 
   def create
-    author_category = Author_category.new(author_category_params)
+    author_category = AuthorCategory.new(author_category_params)
     if author_category.save
       redirect_to author_category, notice: 'Category was successfully created'
     else
@@ -39,6 +39,6 @@ class AuthorCategoriesController < ApplicationController
   private
 
   def author_category_params
-    params.require(author_category).permit(:name)
+    params.require(:author_category).permit(:name)
   end
 end
