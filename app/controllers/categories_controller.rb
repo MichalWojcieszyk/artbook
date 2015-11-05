@@ -16,6 +16,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
+    category = Category.new(category_params)
     if category.save
       redirect_to category, notice: 'Category was successfully created'
     else
@@ -33,7 +34,7 @@ class CategoriesController < ApplicationController
 
   def destroy
     category.destroy
-    redirect_to caterories_url, notice: 'Category was successfully deleted'
+    redirect_to categories_path, notice: 'Category was successfully deleted'
   end
 
   private
