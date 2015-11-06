@@ -1,6 +1,7 @@
 class AuthorCategoriesController < ApplicationController
   expose(:author_category)
   expose(:author_categories) { AuthorCategory.order(:name) }
+  expose(:author) { Author.new }
 
   def index
   end

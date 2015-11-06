@@ -1,0 +1,17 @@
+= simple_form_for author do |f|
+  -if author.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(author.errors.count, "error")}prohibited this author from being saved: "
+      %ul
+        -author.errors.full_message.each do |msg|
+          %li= msg
+
+  .form-inputs
+    =f.input :name, required: true, autofocus: true
+    =f.input :birth_date, as: :date, start_year: Date.today.year - 500, end_year: Date.today.year, order: [:day, :month, :year]
+    =f.input :die_date, as: :date, start_year: Date.today.year - 500, end_year: Date.today.year, order: [:day, :month, :year]
+    =f.input :hometown
+    =f.input :photo
+    =f.input :biography
+  .form-actions
+    =f.button :submit, "Add this author", class: "btn btn-success"

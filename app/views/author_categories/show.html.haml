@@ -2,3 +2,43 @@
   = author_category.name
 -if user_signed_in?
   = render 'authors/form'
+%br
+
+-if author_category.authors.empty?
+  "No authors in this category. Add new one!"
+-else
+  .panel.panel-default
+    .panel.panel-primary
+      Name:
+    .panel-body
+      = link_to author.name
+  .panel.panel-default
+    .panel.panel-primary
+      Rating:
+    .panel-body
+      =author.rating
+  .panel.panel-default
+    .panel.panel-primary
+      Birth date
+    .panel-body
+      =author.birth_date
+  .panel.panel-default
+    .panel.panel-primary
+      Die date
+    .panel-body
+      =author.die_date
+  .panel.panel-default
+    .panel.panel-primary
+      Hometown
+    .panel-body
+      =author.hometown
+  .panel.panel-default
+    .panel.panel-primary
+      Photo
+    .panel-body
+      =author.photo
+  .panel.panel-default
+    .panel.panel-primary
+      Biography
+    .panel-body
+      =author.biography
