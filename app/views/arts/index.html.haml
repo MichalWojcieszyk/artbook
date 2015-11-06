@@ -2,7 +2,7 @@
 
 -if user_signed_in?
   = render 'arts/form'
-  
+
 %table.table.table-bordered
   %tr
     %th Title
@@ -14,6 +14,7 @@
     %th Owner
     %th Location
     %th Rating
+    %th Category
   - arts.each do |art|
     %tr
       %td= art.title.capitalize
@@ -24,4 +25,5 @@
       %td= art.image
       %td= art.owner
       %td= art.location
-      %td= art.rating 
+      %td= art.rating
+      %td= art.category_id

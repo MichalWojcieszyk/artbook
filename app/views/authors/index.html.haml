@@ -1,2 +1,21 @@
-%h1 Authors#index
-%p Find me in app/views/authors/index.html.haml
+%h1 Authors
+
+-if user_signed_in?
+  = render 'form'
+
+%table.table.table-bordered
+  %tr
+    %th Name
+    %th Hometown
+    %th Birth date
+    %th Die date
+    %th Rating
+    %th Photo
+  - authors.each do |author|
+    %tr
+      %td= author.name.capitalize
+      %td= author.hometown.capitalize
+      %td= author.birth_date
+      %td= author.die_date
+      %td= author.rating
+      %td= author.photo
