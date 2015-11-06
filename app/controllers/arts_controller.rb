@@ -17,15 +17,21 @@ class ArtsController < ApplicationController
   end
 
   def create
+    self.art = Art.new(art_params)
+    art.user_id = current_user.id
     if art.save
-      category.arts << art
-      redirect_to category_art_url(category, art), notice: "Your work of art was successfully created"
+      arts << art
+      redirect_to arts_path, notice: "Your work of art was successfully created"
+    else 
+      render :new
     end
   end
 
   def update
     if art.update(art_params)
       redirect_to category_art_url(category, art), notice: "Work of art was successfully updated"
+    else 
+      render :edit
     end
   end
 

@@ -1,6 +1,27 @@
 %h1 List of Arts
 
+-if user_signed_in?
+  = render 'arts/form'
+  
 %table.table.table-bordered
   %tr
-    %th Title 
-    %td= art.title
+    %th Title
+    %th Description 
+    %th Production date
+    %th Author
+    %th Style
+    %th Image
+    %th Owner
+    %th Location
+    %th Rating
+  - arts.each do |art|
+    %tr
+      %td= art.title.capitalize
+      %td= art.description.capitalize
+      %td= art.production_date
+      %td= art.author
+      %td= art.style
+      %td= art.image
+      %td= art.owner
+      %td= art.location
+      %td= art.rating 

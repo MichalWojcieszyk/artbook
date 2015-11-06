@@ -16,12 +16,12 @@ Rails.application.routes.draw do
 
   get 'author_categories/destroy'
 
-  resources :categories do
-    resources :arts do
-      resources :art_comments
-    end
+  resources :categories
+    
+  resources :arts do
+    resources :art_comments
   end
-
+  
   resources :arts
   resources :author_categories
 
