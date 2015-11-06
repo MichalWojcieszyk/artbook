@@ -32,7 +32,7 @@ class AuthorCategoriesController < ApplicationController
   end
 
   def destroy
-    category.destroy
+    author_category.destroy
     redirect_to author_categories_path, notice: 'Category was successfully deleted'
   end
 

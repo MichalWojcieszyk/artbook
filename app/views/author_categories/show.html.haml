@@ -1,4 +1,4 @@
 %h1 
   = author_category.name
-
-= author_category.name
+-if user_signed_in?
+  = render 'authors/form'

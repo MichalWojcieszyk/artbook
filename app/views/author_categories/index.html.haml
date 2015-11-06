@@ -1,3 +1,15 @@
 %h1 Categories of authors
 = link_to 'Add new category', new_author_category_path, class: 'btn btn-primary'
 
+%table.table.table-striped
+  %tr 
+    %th Name
+    %th
+    %th
+    %th
+  - author_categories.each do |author_category|
+    %tr
+      %td= link_to author_category.name, author_category, class: 'btn btn-default'
+      %td= link_to "Show", author_category, class: 'btn btn-warning'
+      %td= link_to "Edit", edit_author_category_path(author_category), class: 'btn btn-info'
+      %td= link_to "Delete", author_category, method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger'

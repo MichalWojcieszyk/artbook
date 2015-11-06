@@ -1,2 +1,7 @@
-%h1 AuthorCategories#edit
-%p Find me in app/views/author_categories/edit.html.haml
+%h1 Edit category
+
+= render 'form'
+%br
+= link_to 'Show', author_category, class: 'btn btn-warning'
+\|
+= link_to 'Back', author_categories_path, class: "btn btn-primary"
