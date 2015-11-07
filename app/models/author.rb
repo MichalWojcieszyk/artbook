@@ -4,5 +4,5 @@ class Author < ActiveRecord::Base
 	belongs_to :user
   belongs_to :author_category
 
-	validates_presence_of :name, :rating
+	validates_presence_of :name
 end

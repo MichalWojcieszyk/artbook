@@ -1,2 +1,27 @@
-%h1 Authors#show
-%p Find me in app/views/authors/show.html.haml
+%h1 
+  = author.name
+.panel.panel-default
+  .panel.panel-primary
+    Name:
+  .panel-body
+    = author.name
+  .panel.panel-primary
+    Birth date: 
+  .panel-body
+    = author.birth_date
+  .panel.panel-primary
+    Die date:
+  .panel-body
+    = author.die_date
+  .panel.panel-primary
+    Hometown: 
+  .panel-body
+    = author.hometown
+  .panel.panel-primary
+    Photo: 
+  .panel-body
+    = author.photo
+  .panel.panel-primary
+    Biography
+  .panel-body
+    = author.biography

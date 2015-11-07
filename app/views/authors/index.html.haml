@@ -13,7 +13,7 @@
     %th Photo
   - authors.each do |author|
     %tr
-      %td= author.name.capitalize
+      %td= link_to author.name.capitalize, author
       %td= author.hometown.capitalize
       %td= author.birth_date
       %td= author.die_date
