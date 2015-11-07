@@ -17,7 +17,7 @@
     %th Category
   - arts.each do |art|
     %tr
-      %td= art.title.capitalize
+      %td= link_to art.title.capitalize, art
       %td= art.description.capitalize
       %td= art.production_date
       %td= art.author

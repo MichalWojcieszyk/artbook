@@ -1,6 +1,32 @@
-%h1 Piece of art
+%h1 
+  = art.title
 
-%table.table.table-bordered
-  %tr
-    %th Title
-    %td= art.title
+.panel.panel-default
+  .panel.panel-primary
+    Rating:
+  .panel-body
+    = art.rating
+  .panel.panel-primary
+    Description:
+  .panel-body
+    = art.description
+  .panel.panel-primary
+    Production date: 
+  .panel-body
+    = art.production_date
+  .panel.panel-primary
+    Author:
+  .panel-body
+    = link_to art.author
+  .panel.panel-primary
+    Style: 
+  .panel-body
+    = art.style
+  .panel.panel-primary
+    Owner 
+  .panel-body
+    = art.owner
+  .panel.panel-primary
+    Location:
+  .panel-body
+    = art.location
