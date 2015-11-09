@@ -28,7 +28,24 @@
   .field
   = f.label :style
   %br
-  = f.text_field :style
-  .actions
+  = f.text_field :style, list: 'style-name'
+  %datalist#style-name
+    - Category.all.each do |cat|
+      %option{ value: cat.name }
   %br
+  .field
+  = f.label :image
+  %br
+  = f.text_field :image
+  .field
+  = f.label :owner
+  %br
+  = f.text_field :owner
+  .field
+  = f.label :location
+  %br
+  = f.text_field :location
+  %br
+
+  .actions
   = f.submit
