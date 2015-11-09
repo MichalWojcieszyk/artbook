@@ -3,6 +3,7 @@ class ArtsController < ApplicationController
   expose(:art)
   expose(:arts) { Art.order(:rating) }
   expose(:art_comments, ancestor: :art)
+  expose(:author)
 
   def index
   end
