@@ -1,0 +1,15 @@
+= simple_form_for museum do |f|
+  -if museum.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(museum.errors.count, "error")} prohibited this author from being saved: "
+      %ul
+        -author.errors.full_message.each do |msg|
+          %li= msg
+
+  .form-inputs
+    = f.input :name, required: true, autofocus: true
+    = f.input :location
+    = f.input :address
+    = f.input :start_date, as: :date, start_year: Date.today.year - 500, end_date: Date.today.year, order: [:day, :month, :year]
+  .form-actions
+    = f.button :submit, "Add this museum", class: "btn btn-success"
