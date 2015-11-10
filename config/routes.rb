@@ -2,6 +2,20 @@ Rails.application.routes.draw do
   
   
 
+  #get 'museums/index'
+
+  #get 'museums/show'
+
+  #get 'museums/create'
+
+  #get 'museums/new'
+
+  #get 'museums/destroy'
+
+  #get 'museums/edit'
+
+  #get 'museums/update'
+
   #get 'author_categories/index'
 
   get 'author_categories/show'
@@ -17,6 +31,8 @@ Rails.application.routes.draw do
   get 'author_categories/destroy'
 
   resources :categories
+
+  resources :museums
     
   resources :arts do
     resources :art_comments

@@ -23,6 +23,8 @@
           %li.active
             = link_to "Authors", authors_path
           %li.active
+            = link_to "Museums", museums_path
+          %li.active
             -if user_signed_in?
               =link_to "Show my profile", user_path(current_user)
     
